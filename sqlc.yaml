@@ -1,0 +1,55 @@
+# The version of the sqlc configuration format. The latest version is 2.
+version: "2"
+
+# A list of SQL sources to generate code from.
+sql:
+
+  # The first SQL source.
+  - # The database engine to use. Possible values are "postgresql" and "mysql".
+    engine: "postgresql"
+    # The path to the file that contains the SQL queries to generate code from.
+    queries: "./db/query/"
+    # The path to the file that contains the database schema to use for type inference and validation.
+    schema: "./db/migration/"
+    # The code generation settings for this SQL source.
+    gen:
+      # The settings for Go code generation.
+      go:
+        # The name of the Go package to use for the generated code.
+        package: "db"
+        # The path to the directory where the generated code will be written.
+        out: "./db/sqlc"
+        # Optional settings for Go code generation.
+        # Whether to emit db tags for struct fields. Default is false.
+        emit_db_tags: true
+        emit_json_tags: true
+        # Whether to emit prepared queries instead of normal queries. Default is false.
+        emit_prepared_queries: false
+        # Whether to emit an interface for the query methods. Default is false.
+        emit_interface: false
+        # Whether to use the exact table names as struct names instead of singularizing them. Default is false.
+        emit_exact_table_names: false
+
+  # You can add more SQL sources here with different settings.
+
+# Optional settings for global configuration.
+
+# A list of custom plugins to use for code generation.
+# plugins:
+
+  # The first plugin.
+  - # The name of the plugin. This must match the name field in the plugin's manifest file.
+    # name: "py"
+
+    # The URL to download the plugin binary from.
+    # url: "https://github.com/kyleconroy/sqlc/releases/download/v1.19.0/sqlc-py-v1.19.0-linux-amd64.tar.gz"
+
+    # The SHA256 checksum of the plugin binary.
+    # checksum: "a9f4f6b7a7e8d8a3b9a5f5b4f6e3d0b6a5f7e9d1e8f0b4a9f4f6b7a7e8d8a3b9"
+
+    # Optional settings for plugin configuration.
+
+    # A map of options to pass to the plugin. The keys and values depend on the plugin's specification.
+    # options:
+    #   package_name: "tutorial"
+    #   output_dir: "tutorial"
