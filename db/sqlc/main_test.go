@@ -11,7 +11,7 @@ import (
 
 const (
 	driverName     = "postgres"
-	dataSourceName = "postgresql://root:root@localhost:30003/simple_bank?sslmode=disable"
+	dataSourceName = "postgresql://root:root@localhost:5432/simple_bank?sslmode=disable"
 )
 
 var testQueries *Queries
